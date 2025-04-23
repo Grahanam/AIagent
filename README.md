@@ -1,65 +1,78 @@
-# agent README
+# AI Task Agent Extension
 
-This is the README for your extension "agent". After writing up a brief description, we recommend including the following sections.
+A VS Code extension that uses AI to generate and execute system automation plans.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+🚀 **AI-Powered Automation**
 
-For example if there is an image subfolder under your extension project workspace:
+- Generate system commands/files for complex tasks via natural language
+- Interactive plan approval workflow
+- Cross-platform command generation (Linux/macOS/Windows)
 
-\!\[feature X\]\(images/feature-x.png\)
+🛡️ **Safe Execution**
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+- Visual confirmation before executing commands
+- Sudo password handling with secure input
+- Execution logging and error reporting
+
+📁 **File Operations**
+
+- Automatic file creation with generated content
+- Output validation and error handling
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+- **Node.js** >= 18.x
+- **Python** >= 3.8
+- **VS Code** >= 1.85.0
+- OpenAI API access (or compatible LLM endpoint)
 
-## Extension Settings
+## Installation
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+### 1. Clone Repository
 
-For example:
+```bash
+git clone https://github.com/yourusername/ai-task-agent.git
+cd ai-task-agent
 
-This extension contributes the following settings:
+```
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+### 2. Install Node Dependencies
 
-## Known Issues
+```bash
+npm install
+```
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+### 3. Python Setup
 
-## Release Notes
+```bash
+# Create and activate virtual environment
+python -m venv .venv
+source .venv/bin/activate  # Linux/macOS
+# .venv\Scripts\activate  # Windows
 
-Users appreciate release notes as you update your extension.
+# Install Python dependencies
+pip install python-dotenv openai
 
-### 1.0.0
+```
 
-Initial release of ...
+### 4. Configuration
 
-### 1.0.1
+Create .env file in project root:
+recommended:openai/gpt-4.1(free)
 
-Fixed issue #.
+```bash
+AI_AGENT_TOKEN=your_api_token_here
+AI_AGENT_ENDPOINT=api_end_point
+AI_AGENT_MODEL=api_model
+```
 
-### 1.1.0
+## Usage
 
-Added features X, Y, and Z.
-
----
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+- Open extension.js file. Press F5
+- In New Vscode window, open Command Palette (Ctrl+Shift+P)
+- Select "AI Agent: Show Panel"
+- Enter your task (e.g., "Install krita")
+- Review generated plan
+- Approve or cancel execution
