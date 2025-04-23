@@ -1,0 +1,53 @@
+{
+  "name": "agent",
+  "displayName": "AI Agent",
+  "description": "AI-powered task automation agent",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.98.2"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:agent.showPanel"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "agent.showPanel",
+        "title": "Show AI Agent",
+        "category": "AI Agent"
+      }
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "agent.showPanel",
+          "when": "true"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.3",
+    "@types/mocha": "^8.2.2",
+    "@types/node": "14.x",
+    "@types/vscode": "^1.60.0",
+    "eslint": "^7.27.0",
+    "glob": "^7.1.7",
+    "mocha": "^8.4.0",
+    "typescript": "^4.3.2",
+    "vscode-test": "^1.5.2"
+  },
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "python-shell": "^3.0.1"
+  }
+}
